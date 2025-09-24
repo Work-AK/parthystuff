@@ -1,8 +1,9 @@
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: "Inter", "Segoe UI", Roboto, Arial, sans-serif;
     background-color: #141414;
-    color: #fff;
+    color: #ffffff;
+    line-height: 1.6;
 }
 
 header {
@@ -10,13 +11,19 @@ header {
     background-color: #000;
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 .logo {
     color: #e50914;
-    font-size: 28px;
-    font-weight: bold;
+    font-size: 32px;
+    font-weight: 700;
     text-decoration: none;
+    letter-spacing: 1px;
 }
 
 main {
@@ -29,30 +36,48 @@ h2 {
 
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-    gap: 15px;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
 }
 
 .card {
     text-decoration: none;
-    color: white;
-    transition: transform 0.2s;
+    color: #ffffff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #1c1c1c;
 }
 
 .card img {
     width: 100%;
-    border-radius: 6px;
+    height: auto;
+    border-radius: 8px 8px 0 0;
+    display: block;
 }
 
 .card:hover {
     transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.7);
 }
 
 .watch-page {
-    max-width: 800px;
-    margin: auto;
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 20px;
 }
 
 .video-container {
-    margin-top: 20px;
+    margin-top: 25px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.6);
+}
+
+a {
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: #e50914;
 }
