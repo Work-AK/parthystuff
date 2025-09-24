@@ -13,9 +13,9 @@ PARKING_SPOTS = [f"P{str(i).zfill(2)}" for i in range(1, 21)]  # 20 spots
 TICKETS = []
 
 # ------------------------
-# Templates
+# Full HTML Template
 # ------------------------
-BASE_HTML = """
+FULL_HTML = """
 <!doctype html>
 <html lang="en">
 <head>
@@ -98,15 +98,6 @@ BASE_HTML = """
 </head>
 <body>
 <div class="container">
-{% block content %}{% endblock %}
-</div>
-</body>
-</html>
-"""
-
-INDEX_HTML = """
-{% extends "base" %}
-{% block content %}
 <h1>🚗 Parking Ticket Management</h1>
 
 <h2 class="section-title">Available Spots</h2>
@@ -135,7 +126,10 @@ INDEX_HTML = """
 {% else %}
 <p>No active tickets.</p>
 {% endfor %}
-{% endblock %}
+
+</div>
+</body>
+</html>
 """
 
 # ------------------------
@@ -145,7 +139,7 @@ INDEX_HTML = """
 def index():
     booked_spots = [t["spot"] for t in TICKETS]
     available_spots = [s for s in PARKING_SPOTS if s not in booked_spots]
-    return render_template_string(INDEX_HTML, available_spots=available_spots, tickets=TICKETS, base=BASE_HTML)
+    return render_template_string(FULL_HTML, available_spots=available_spots, tickets=TICKETS)
 
 @app.route("/book", methods=["POST"])
 def book():
@@ -177,4 +171,3 @@ def api_tickets():
 # ------------------------
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
-
