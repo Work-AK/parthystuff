@@ -22,7 +22,7 @@ COPY app.py /app/app.py
 # ------------------------
 # Install dependencies
 # ------------------------
-RUN pip install --no-cache-dir Flask==3.3.2
+RUN pip install --no-cache-dir Flask==2.3.2
 
 # ------------------------
 # Expose port
