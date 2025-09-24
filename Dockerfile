@@ -27,7 +27,7 @@ RUN pip install --no-cache-dir Flask==3.3.2
 # ------------------------
 # Expose port
 # ------------------------
-EXPOSE 8080
+EXPOSE 5000
 
 # ------------------------
 # Run the app
