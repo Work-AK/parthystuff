@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>YouFlix</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1 class="logo">YouFlix</h1>
+    </header>
+    <main>
+        <h2>Trending Now</h2>
+        <div class="grid">
+            {% for video in videos %}
+            <a href="{{ url_for('watch', video_id=video.id) }}" class="card">
+                <img src="https://img.youtube.com/vi/{{ video.id }}/0.jpg" alt="{{ video.title }}">
+                <p>{{ video.title }}</p>
+            </a>
+            {% endfor %}
+        </div>
+    </main>
+</body>
+</html>
